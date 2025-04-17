@@ -2,11 +2,14 @@ import { Suspense } from 'react'
 import ToolDetail from '@/components/tools/ToolDetail'
 import RelatedTools from '@/components/tools/RelatedTools'
 import AdBanner from '@/components/ads/AdBanner'
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
 
 export default async function ToolPage({ params }: { params: { slug: string } }) {
-  const supabase = createClient()
-  
   const { data: tool, error } = await supabase
     .from('tools')
     .select('*')
@@ -27,6 +30,14 @@ export default async function ToolPage({ params }: { params: { slug: string } })
       </div>
     )
   }
+
+  // Fetch related tools from the same category
+  const { data: relatedTools } = await supabase
+    .from('tools')
+    .select('*')
+    .eq('category', tool.category)
+    .neq('id', tool.id)
+    .limit(3)
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -50,7 +61,7 @@ export default async function ToolPage({ params }: { params: { slug: string } })
           />
           
           <Suspense fallback={<div>Loading related tools...</div>}>
-            <RelatedTools slug={params.slug} />
+            <RelatedTools tools={relatedTools || []} currentToolId={tool.id} />
           </Suspense>
           
           <AdBanner 

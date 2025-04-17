@@ -34,7 +34,7 @@ export default function RelatedTools({ tools, currentToolId }: RelatedToolsProps
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform group-hover:scale-[1.02]">
               <div className="relative h-48 w-full">
                 <Image
-                  src={tool.image_url || '/images/placeholder-tool.jpg'}
+                  src={tool.logo_url || '/images/placeholder-tool.jpg'}
                   alt={tool.name}
                   fill
                   className="object-cover"
@@ -48,10 +48,10 @@ export default function RelatedTools({ tools, currentToolId }: RelatedToolsProps
                   {tool.description}
                 </p>
                 <div className="mt-3 flex items-center gap-2">
-                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs">
+                  <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-medium">
                     {tool.category}
                   </span>
-                  <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full text-xs">
+                  <span className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full text-xs font-medium">
                     {tool.pricing_type}
                   </span>
                 </div>

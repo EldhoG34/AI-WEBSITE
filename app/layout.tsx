@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: {
     default: 'AI Tools Directory - Discover the Best AI Tools',
     template: '%s | AI Tools Directory'
@@ -62,10 +62,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        {children}
-      </body>
+    <html lang="en" className={inter.className} suppressHydrationWarning>
+      <body>{children}</body>
     </html>
   )
-} 
+}
+
+export { metadata } 

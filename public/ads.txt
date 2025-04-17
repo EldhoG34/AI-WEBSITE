@@ -1,0 +1,32 @@
+# ads.txt file for ai-tools-directory.com
+# Contact: admin@ai-tools-directory.com
+
+# Google AdSense
+google.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Amazon Associates
+amazon-adsystem.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Media.net
+media.net, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# AdThrive
+adthrive.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Sovrn // Formerly VigLink
+sovrn.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Monumetric
+monumetric.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Ezoic
+ezoic.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Adsterra
+adsterra.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# PropellerAds
+propellerads.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Revcontent
+revcontent.com, pub-XXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0 

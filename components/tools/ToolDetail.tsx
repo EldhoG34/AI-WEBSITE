@@ -16,7 +16,7 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
         <div className="md:w-1/3">
           <div className="relative h-64 w-full rounded-lg overflow-hidden">
             <Image
-              src={tool.image_url || '/images/placeholder-tool.jpg'}
+              src={tool.logo_url || '/images/placeholder-tool.jpg'}
               alt={tool.name}
               fill
               className="object-cover"
@@ -54,25 +54,15 @@ export default function ToolDetail({ tool }: ToolDetailProps) {
             ))}
           </div>
 
-          <div className="flex gap-4">
-            <Link
+          <div className="flex items-center gap-4">
+            <a
               href={tool.website_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               Visit Website
-            </Link>
-            {tool.demo_url && (
-              <Link
-                href={tool.demo_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-6 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-              >
-                Try Demo
-              </Link>
-            )}
+            </a>
           </div>
         </div>
       </div>

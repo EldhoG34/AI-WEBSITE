@@ -8,6 +8,8 @@ export interface Tool {
   features: string[]
   website_url: string
   logo_url: string
+  use_cases?: string[]
+  integrations?: string[]
   created_at: string
   updated_at: string
 }

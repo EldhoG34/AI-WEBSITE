@@ -2,8 +2,32 @@ import { Suspense } from 'react'
 import ToolDetail from '@/components/tools/ToolDetail'
 import RelatedTools from '@/components/tools/RelatedTools'
 import AdBanner from '@/components/ads/AdBanner'
+import { createClient } from '@/lib/supabase/server'
 
-export default function ToolPage({ params }: { params: { slug: string } }) {
+export default async function ToolPage({ params }: { params: { slug: string } }) {
+  const supabase = createClient()
+  
+  const { data: tool, error } = await supabase
+    .from('tools')
+    .select('*')
+    .eq('slug', params.slug)
+    .single()
+
+  if (error || !tool) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Tool not found
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            The tool you're looking for doesn't exist or has been removed.
+          </p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col lg:flex-row gap-8">
@@ -16,7 +40,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           />
           
           <Suspense fallback={<div>Loading tool details...</div>}>
-            <ToolDetail slug={params.slug} />
+            <ToolDetail tool={tool} />
           </Suspense>
           
           <AdBanner 
